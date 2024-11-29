@@ -1,0 +1,19 @@
+{
+  "recommendations": [
+      "mintlify.document",
+      "esbenp.prettier-vscode",
+      "dbaeumer.vscode-eslint",
+      "aaron-bond.better-comments",
+      "bradlc.vscode-tailwindcss",
+      "kamikillerto.vscode-colorize",
+      "pranaygp.vscode-css-peek",
+      "cschlosser.doxdocgen",
+      "usernamehw.errorlens",
+      "kisstkondoros.vscode-gutter-preview",
+      "quicktype.quicktype",
+      "yoavbls.pretty-ts-errors",
+      "eamodio.gitlens",
+      "donjayamanne.githistory",
+      "mhutchie.git-graph"
+  ]
+}
