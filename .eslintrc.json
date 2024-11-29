@@ -1,0 +1,152 @@
+{
+  "root": true,
+  "ignorePatterns": [
+    "projects/**/*",
+    "**/*.d.ts",
+    "**/*.spec.ts",
+    "**/*.js"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.json",
+        // for simple-import-sort plugin
+        "sourceType": "module",
+        "ecmaVersion": "latest"
+      },
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@angular-eslint/template/process-inline-templates",
+        "prettier",
+        "plugin:prettier/recommended"
+      ],
+      "plugins": ["simple-import-sort"],
+      "rules": {
+        "prettier/prettier": "error",
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": "app",
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "app",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ],
+        // later
+        "@typescript-eslint/naming-convention": [
+          "warn",
+          {
+            "selector": "default",
+            "format": ["camelCase","snake_case"]
+          },
+          {
+            "selector": "variable",
+            "format": ["camelCase", "UPPER_CASE"]
+          },
+          {
+            "selector": "parameter",
+            "format": ["camelCase"],
+            "leadingUnderscore": "allow"
+          },
+          {
+            "selector": "memberLike",
+            "modifiers": ["private"],
+            "format": ["camelCase"],
+            "leadingUnderscore": "require"
+          },
+          {
+            "selector": "typeLike",
+            "format": ["PascalCase"]
+          },
+          {
+            "selector": "interface",
+            "format": ["PascalCase"],
+            "custom": {
+              "regex": "^IZ[A-Z]",
+              "match": true
+            }
+          },
+          {
+            "selector": "property",
+            "format": ["camelCase", "PascalCase"],
+            "filter": {
+              "regex": "^[A-Z]",
+              "match": true
+            }
+          },
+          {
+            "selector": "enumMember",
+            "format": ["PascalCase", "UPPER_CASE"],
+            "filter": {
+              "regex": "^[A-Z]",
+              "match": true
+            }
+          }
+        ],
+        "@angular-eslint/no-conflicting-lifecycle": "error",
+        "@angular-eslint/use-lifecycle-interface": "error",
+        // Requires type annotations in certain places
+        "@typescript-eslint/typedef": ["warn", {
+          "arrayDestructuring": true,
+          "arrowParameter": true,
+          "memberVariableDeclaration": true,
+          "objectDestructuring": true,
+          "parameter": false,
+          "propertyDeclaration": true,
+          "variableDeclaration": true,
+          "variableDeclarationIgnoreFunction": false
+        }],
+        "@angular-eslint/no-empty-lifecycle-method": "warn",
+        "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-explicit-any": "error",
+        "@typescript-eslint/prefer-as-const": "error",
+        "@typescript-eslint/no-var-requires": "error",
+        "@typescript-eslint/no-inferrable-types": "off",
+        "@typescript-eslint/no-floating-promises": "error",
+        "@typescript-eslint/no-misused-promises": "error",
+        "@typescript-eslint/no-unsafe-assignment": "warn",
+        "@typescript-eslint/explicit-module-boundary-types": "warn",
+        "no-duplicate-imports": "error",
+        "@typescript-eslint/no-unsafe-return": "warn",
+        "@typescript-eslint/consistent-generic-constructors": ["error", "type-annotation"],
+        "@typescript-eslint/consistent-indexed-object-style": "error",
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+        "no-param-reassign": "error",
+        "no-console": ["error", { "allow": ["error", "warn", "info"] }],
+        // This rule enforces that array methods like .map(), .filter(), .find(), .some(), .every(), and .reduce() have a return statement.
+        "array-callback-return": "warn", // future
+        "@typescript-eslint/ban-types": "error",
+        "object-shorthand": "warn"
+      }
+    },
+    {
+      "files": [
+        "*.html"
+      ],
+      "extends": [
+        "plugin:@angular-eslint/template/recommended",
+        "plugin:prettier/recommended"
+      ],
+      "rules": {
+        "@angular-eslint/template/no-negated-async": "error",
+        "@angular-eslint/template/no-duplicate-attributes": "warn", // error
+        "@angular-eslint/component-class-suffix": "error"
+        // "@angular-eslint/template/use-track-by-function": "error"
+      }
+    }
+  ]
+}
